@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Printer, Mail, Phone, MapPin } from 'lucide-react';
+import { X, Printer, Mail, Phone, MapPin, Download } from 'lucide-react';
 import { personalInfo, education, skills, experiences, projects } from '../data/portfolioData';
 
 export default function ResumeModal({ isOpen, onClose }) {
@@ -43,11 +43,20 @@ export default function ResumeModal({ isOpen, onClose }) {
             </div>
 
             <div className="flex items-center gap-2">
+              <a
+                href={personalInfo.resumeLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg hover:scale-105 transition-all shadow-md"
+              >
+                <Download size={14} /> Open in Drive
+              </a>
+
               <button
                 onClick={handlePrint}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-200 bg-slate-800 hover:bg-slate-700 rounded-lg border border-slate-700 transition-all hover:scale-105"
               >
-                <Printer size={14} /> Print / Save PDF
+                <Printer size={14} /> Print
               </button>
 
               <button

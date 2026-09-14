@@ -1,20 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { personalInfo } from '../data/portfolioData';
-import { Smartphone, Trophy, Layers, GraduationCap } from 'lucide-react';
+import { Smartphone, Trophy, Code2, GraduationCap } from 'lucide-react';
 
 export default function Stats() {
   const icons = [
     <Smartphone className="text-cyan-400" size={24} />,
     <Trophy className="text-amber-400" size={24} />,
-    <Layers className="text-emerald-400" size={24} />,
+    <Code2 className="text-emerald-400" size={24} />,
     <GraduationCap className="text-purple-400" size={24} />
   ];
 
   return (
     <section className="py-12 bg-slate-950/60 dark:bg-slate-950/60 light:bg-slate-50 border-y border-slate-800/80 dark:border-slate-800/80 light:border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {personalInfo.stats.map((stat, idx) => (
             <motion.div
               key={idx}

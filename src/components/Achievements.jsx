@@ -1,12 +1,13 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { achievements } from '../data/portfolioData';
-import { Trophy, Award, Compass, Code, ExternalLink } from 'lucide-react';
+import { Trophy, Award, Compass, Code2 } from 'lucide-react';
 
 export default function Achievements() {
   const icons = [
     <Trophy className="text-amber-400" size={24} />,
     <Compass className="text-cyan-400" size={24} />,
-    <Code className="text-emerald-400" size={24} />
+    <Code2 className="text-emerald-400" size={24} />
   ];
 
   return (
@@ -14,7 +15,13 @@ export default function Achievements() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-mono mb-3">
             <Award size={14} /> Honors & Recognition
           </div>
@@ -24,13 +31,19 @@ export default function Achievements() {
           <p className="mt-4 text-slate-400 dark:text-slate-400 light:text-slate-600 text-base sm:text-lg">
             National hackathon glory, innovation bootcamps, and ongoing problem-solving milestones.
           </p>
-        </div>
+        </motion.div>
 
+        {/* 3-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {achievements.map((item, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="glass-card rounded-2xl p-7 border border-slate-800 dark:border-slate-800 light:border-slate-200 hover:border-amber-500/40 transition-all hover:-translate-y-1 flex flex-col justify-between group shadow-xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.15, duration: 0.5 }}
+              whileHover={{ y: -6, scale: 1.01 }}
+              className="glass-card rounded-2xl p-7 border border-slate-800 dark:border-slate-800 light:border-slate-200 hover:border-amber-500/40 transition-all flex flex-col justify-between group shadow-xl"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -58,7 +71,7 @@ export default function Achievements() {
                 <span>Verified Milestone</span>
                 <Trophy size={14} className="text-amber-400" />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

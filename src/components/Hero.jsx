@@ -146,15 +146,17 @@ export default function Hero({ onOpenResume }) {
                 <ArrowRight size={18} />
               </motion.a>
 
-              <motion.button
+              <motion.a
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={onOpenResume}
+                href={personalInfo.resumeLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3.5 text-base font-semibold text-slate-200 dark:text-slate-200 light:text-slate-800 bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-100 hover:bg-slate-700 dark:hover:bg-slate-700 light:hover:bg-slate-200 rounded-xl border border-slate-700 dark:border-slate-700 light:border-slate-300 transition-all"
               >
                 <Download size={18} className="text-cyan-400" />
                 <span>View Resume</span>
-              </motion.button>
+              </motion.a>
             </motion.div>
 
             {/* Quick Links / Socials */}

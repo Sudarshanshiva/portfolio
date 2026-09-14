@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, FileText, Code2, Sparkles } from 'lucide-react';
+import { Menu, X, Sun, Moon, FileText } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Navbar({ darkMode, setDarkMode, onOpenResume }) {
@@ -72,13 +72,15 @@ export default function Navbar({ darkMode, setDarkMode, onOpenResume }) {
               {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
-            <button
-              onClick={onOpenResume}
+            <a
+              href={personalInfo.resumeLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 rounded-xl shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/30 hover:-translate-y-0.5 transition-all"
             >
               <FileText size={16} />
               <span>Resume</span>
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -116,16 +118,16 @@ export default function Navbar({ darkMode, setDarkMode, onOpenResume }) {
               </a>
             ))}
             <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenResume();
-                }}
+              <a
+                href={personalInfo.resumeLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-3 px-4 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl"
               >
                 <FileText size={18} />
-                <span>View & Download Resume</span>
-              </button>
+                <span>View Resume</span>
+              </a>
             </div>
           </div>
         </div>
